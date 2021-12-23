@@ -21,6 +21,13 @@ module TransactionDesk
         assert_equal 'w16', TransactionDesk.configuration.path_url
       end
 
+      def teardown
+        TransactionDesk.configure do |config|
+          config.api_url  = 'https://api.pre.transactiondesk.com'
+          config.path_url = 'v2'
+        end
+      end
+
     end
 
   end
