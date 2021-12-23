@@ -49,6 +49,7 @@ class TransactionDesk::ClientTest < Minitest::Test
     end
 
     {
+      :transaction_details      => TransactionDesk::TransactionDetailResource,
       :transactions             => TransactionDesk::TransactionResource
     }.each do |method, result|
       define_method "test_#{method}_returns_#{result}" do

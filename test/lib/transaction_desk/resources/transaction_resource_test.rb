@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TransactionDesk::ContactResourceTest < Minitest::Test
+class TransactionDesk::TransactionResourceTest < Minitest::Test
 
   class All < Minitest::Test
     def test_returns_an_array_of_transactions
@@ -62,7 +62,7 @@ class TransactionDesk::ContactResourceTest < Minitest::Test
   end
 
   class Update < Minitest::Test
-    def test_updates_and_returns_a_transaction
+    def test_updates_a_transaction_and_returns_true
       transaction_desk_transaction = TransactionDesk::Transaction.new(
         id: '1234',
         name: 'Testy McTestFace',
