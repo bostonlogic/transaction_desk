@@ -62,13 +62,25 @@ class TransactionDesk::ClientTest < Minitest::Test
     end
 
     def test_transactions_all_endpoint_works_as_expected
-      stub_request(:get, "https://api.pre.transactiondesk.com/v2/transactions").
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
         to_return(status: 200, body: api_fixture('transactions/all'))
 
       transactions = @transaction_desk_client.transactions.all
 
       assert_instance_of Array, transactions
       transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
+    end
+
+    def test_transactions_details_fetch_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/1234/details').
+        to_return(status: 200, body: api_fixture('transaction_details/show'))
+
+      transaction_detail = @transaction_desk_client.transaction_details.fetch(transaction_id: 1234)
+
+      assert_instance_of TransactionDesk::TransactionDetail, transaction_detail
+      assert_instance_of TransactionDesk::Listing, transaction_detail.listing
+      assert_instance_of TransactionDesk::Property, transaction_detail.property
+      assert_instance_of TransactionDesk::Purchase, transaction_detail.purchase
     end
 
   end
