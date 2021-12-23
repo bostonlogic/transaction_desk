@@ -1,0 +1,45 @@
+require 'test_helper'
+
+class TransactionDesk::ClientTest < Minitest::Test
+
+  class Initialize < Minitest::Test
+
+    def test_initialize_requires_an_access_token
+      assert_raises(ArgumentError) { TransactionDesk::Client.new }
+    end
+
+    def test_initialize_creates_a_transaction_desk_client_instance
+      transaction_desk_client = TransactionDesk::Client.new('alohomora')
+
+      assert_instance_of TransactionDesk::Client, transaction_desk_client
+    end
+
+    def test_initialize_sets_the_provided_access_token
+      transaction_desk_client = TransactionDesk::Client.new('alohomora')
+
+      assert_equal 'alohomora', transaction_desk_client.access_token
+    end
+
+  end
+
+  class Connection < Minitest::Test
+
+    def setup
+      @transaction_desk_client = TransactionDesk::Client.new('alohomora')
+    end
+
+    def test_connection_sets_the_correct_url
+      assert_equal 'https://api.pre.transactiondesk.com/', @transaction_desk_client.connection.url_prefix.to_s
+    end
+
+    def test_connection_builds_the_correct_headers
+      assert_equal 'application/json', @transaction_desk_client.connection.headers[:content_type]
+    end
+
+    def test_connection_builds_the_correct_authoriation_header
+      assert_equal 'Bearer alohomora', @transaction_desk_client.connection.headers[:authorization]
+    end
+
+  end
+
+end
