@@ -42,4 +42,34 @@ class TransactionDesk::ClientTest < Minitest::Test
 
   end
 
+  class EndpointHandling < Minitest::Test
+
+    def setup
+      @transaction_desk_client = TransactionDesk::Client.new('alohomora')
+    end
+
+    {
+      :transactions             => TransactionDesk::TransactionResource
+    }.each do |method, result|
+      define_method "test_#{method}_returns_#{result}" do
+        assert_instance_of result, @transaction_desk_client.send(method)
+      end
+    end
+
+    def test_invalid_endpoints_raise_method_missing_error
+      assert_raises(NoMethodError) { @transaction_desk_client.not_a_thing }
+    end
+
+    def test_transactions_all_endpoint_works_as_expected
+      stub_request(:get, "https://api.pre.transactiondesk.com/v2/transactions").
+        to_return(status: 200, body: api_fixture('transactions/all'))
+
+      transactions = @transaction_desk_client.transactions.all
+
+      assert_instance_of Array, transactions
+      transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
+    end
+
+  end
+
 end

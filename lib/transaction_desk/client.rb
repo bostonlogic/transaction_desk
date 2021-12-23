@@ -16,6 +16,24 @@ module TransactionDesk
       end
     end
 
+    def resources
+      @resources ||= {}
+    end
+
+    def self.resources
+        transactions: TransactionResource
+      }
+    end
+
+    def method_missing(name, *args, &block)
+      if self.class.resources.keys.include?(name)
+        resources[name] ||= self.class.resources[name].new(connection: connection)
+        resources[name]
+      else
+        super
+      end
+    end
+
     private
 
     def connection_options
