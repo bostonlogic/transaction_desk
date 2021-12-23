@@ -16,6 +16,7 @@ module TransactionDesk
       end
 
       scoped :create, :update do
+        property :name
         property :status_id, key: 'statusId'
         property :type_id,   key: 'typeId'
       end
