@@ -1,0 +1,7 @@
+{
+  "name": "Id",
+  "type": "Guid",
+  "canFilter": true,
+  "canSort": true,
+  "filterType": "Equals"
+}

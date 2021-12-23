@@ -1,0 +1,43 @@
+{
+  "property": {
+    "streetName": "Wellington Rd.",
+    "streetNumber": "200",
+    "state": "ON",
+    "city": "London",
+    "county": "Middlesex",
+    "zipCode": "N6E 38B",
+    "subDivision": "White Oaks",
+    "lotNumber": "8",
+    "block": "20",
+    "pageNumber": "5",
+    "platBook": "33",
+    "yearBuilt": "1980",
+    "schoolDistrict": "Aquinis School District",
+    "zoningClass": "Residential",
+    "taxNumber": "112-1231-999",
+    "township": "Essex",
+    "legalDescription": "PL ; Lot ; Bl ; DL ; LD ; S ; Twn ; Rge ; M ; Lot A, Section 75, Victoria District, Plan 42316"
+  },
+  "listing": {
+    "mlsNumber": "421126",
+    "listPrice": "200000",
+    "expirationDate": "2012-04-23T18:25:43.51",
+    "propertyIncludes": "Dishwasher, Stove, Fridge",
+    "propertyExcludes": "Washer, Dryer",
+    "leasedItems": "Hot Water Tank"
+  },
+  "purchase": {
+    "purchasePrice": "190000",
+    "offerDate": "2012-04-23T18:25:43.51",
+    "offerExpirationDate": "2012-04-23T18:25:43.51",
+    "offerAcceptanceDate": "2012-04-23T18:25:43.51",
+    "applicationDate": "2012-04-23T18:25:43.51",
+    "approvalDate": "2012-04-23T18:25:43.51",
+    "depositAmount": "50000",
+    "additionalDepositAmount": "10000",
+    "additionalDepositDate": "2012-04-23T18:25:43.51",
+    "fundingDate": "2012-04-23T18:25:43.51",
+    "possessionDate": "2012-04-23T18:25:43.51",
+    "closingDate": "2012-04-23T18:25:43.51"
+  }
+}

@@ -1,0 +1,29 @@
+[ 
+  {
+    "id": "1234",
+    "name": "1916 Glenarbor Way",
+    "statusId": "6d6d2bfe-b166-4f2c-9027-629f09a35b79",
+    "typeId": "2d9d021d-beb7-456d-9cae-6ce5486ac3f5",
+    "ownerId": "5ec37bc1-9f55-4fe2-b9c4-1072f9954312",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  },
+  {
+    "id": "5678",
+    "name": "1917 Glenarbor Way",
+    "statusId": "6d6d2bfe-b166-4f2c-9027-629f09a35b79",
+    "typeId": "2d9d021d-beb7-456d-9cae-6ce5486ac3f5",
+    "ownerId": "5ec37bc1-9f55-4fe2-b9c4-1072f9954312",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  },
+  {
+    "id": "91011",
+    "name": "1918 Glenarbor Way",
+    "statusId": "6d6d2bfe-b166-4f2c-9027-629f09a35b79",
+    "typeId": "2d9d021d-beb7-456d-9cae-6ce5486ac3f5",
+    "ownerId": "5ec37bc1-9f55-4fe2-b9c4-1072f9954312",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  }
+]

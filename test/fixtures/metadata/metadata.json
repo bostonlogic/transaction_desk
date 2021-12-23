@@ -1,0 +1,5 @@
+{
+  "defaultTake": 10,
+  "maxTake": 100,
+  "defaultOrder": "Name"
+}
