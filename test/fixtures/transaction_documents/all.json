@@ -1,7 +1,30 @@
-{
-  "id": "805355ec-7f7d-413e-986a-c767ea0632da",
-  "fileTypeId": "6db4d39b-d96d-4cfd-b97e-0c9cd1a176f9",
-  "documentName": "1916 Glenarbor Way",
-  "dateCreated": "2019-05-14T23:49:49.143+00:00",
-  "lastModified": "2019-05-14T23:49:52.27+00:00"
-}
+[
+  {
+    "id": "1234",
+    "fileTypeId": "6db4d39b-d96d-4cfd-b97e-0c9cd1a176f9",
+    "documentName": "1912 Glenarbor Way",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  },
+  {
+    "id": "3456",
+    "fileTypeId": "6db4d39b-d96d-4cfd-b97e-0c9cd1a176f8",
+    "documentName": "1914 Glenarbor Street",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  },
+  {
+    "id": "5678",
+    "fileTypeId": "6db4d39b-d96d-4cfd-b97e-0c9cd1a176f7",
+    "documentName": "1916 Glenarbor Cresent",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  },
+  {
+    "id": "7890",
+    "fileTypeId": "6db4d39b-d96d-4cfd-b97e-0c9cd1a176f6",
+    "documentName": "1918 Glenarbor Road",
+    "dateCreated": "2019-05-14T23:49:49.143+00:00",
+    "lastModified": "2019-05-14T23:49:52.27+00:00"
+  }
+]

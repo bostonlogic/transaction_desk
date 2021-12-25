@@ -50,6 +50,7 @@ class TransactionDesk::ClientTest < Minitest::Test
 
     {
       :transaction_details      => TransactionDesk::TransactionDetailResource,
+      :transaction_documents    => TransactionDesk::TransactionDocumentResource,
       :transactions             => TransactionDesk::TransactionResource
     }.each do |method, result|
       define_method "test_#{method}_returns_#{result}" do
@@ -81,6 +82,16 @@ class TransactionDesk::ClientTest < Minitest::Test
       assert_instance_of TransactionDesk::Listing, transaction_detail.listing
       assert_instance_of TransactionDesk::Property, transaction_detail.property
       assert_instance_of TransactionDesk::Purchase, transaction_detail.purchase
+    end
+
+    def test_transaction_documents_all_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/1234/documents').
+        to_return(status: 200, body: api_fixture('transaction_documents/all'))
+
+      transaction_documents = @transaction_desk_client.transaction_documents.all(transaction_id: 1234)
+
+      assert_instance_of Array, transaction_documents
+      transaction_documents.each{ |transaction_document| assert_instance_of TransactionDesk::TransactionDocument, transaction_document }
     end
 
   end

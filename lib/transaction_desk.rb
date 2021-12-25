@@ -10,6 +10,7 @@ module TransactionDesk
   autoload :PropertyMapping, 'transaction_desk/mappings/property_mapping'
   autoload :PurchaseMapping, 'transaction_desk/mappings/purchase_mapping'
   autoload :TransactionDetailMapping, 'transaction_desk/mappings/transaction_detail_mapping'
+  autoload :TransactionDocumentMapping, 'transaction_desk/mappings/transaction_document_mapping'
   autoload :TransactionMapping, 'transaction_desk/mappings/transaction_mapping'
 
   autoload :BaseModel, 'transaction_desk/models/base_model'
@@ -17,9 +18,11 @@ module TransactionDesk
   autoload :Property, 'transaction_desk/models/property'
   autoload :Purchase, 'transaction_desk/models/purchase'
   autoload :TransactionDetail, 'transaction_desk/models/transaction_detail'
+  autoload :TransactionDocument, 'transaction_desk/models/transaction_document'
   autoload :Transaction, 'transaction_desk/models/transaction'
 
   autoload :TransactionDetailResource, 'transaction_desk/resources/transaction_detail_resource'
+  autoload :TransactionDocumentResource, 'transaction_desk/resources/transaction_document_resource'
   autoload :TransactionResource, 'transaction_desk/resources/transaction_resource'
 
   autoload :ErrorHandlingResourcable, 'transaction_desk/error_handling_resourcable'
