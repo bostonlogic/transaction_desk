@@ -21,6 +21,7 @@ module TransactionDesk
     end
 
     def self.resources
+        transaction_contacts: TransactionContactResource,
         transaction_details: TransactionDetailResource,
         transaction_documents: TransactionDocumentResource,
         transactions: TransactionResource

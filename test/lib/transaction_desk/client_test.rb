@@ -49,6 +49,7 @@ class TransactionDesk::ClientTest < Minitest::Test
     end
 
     {
+      :transaction_contacts     => TransactionDesk::TransactionContactResource,
       :transaction_details      => TransactionDesk::TransactionDetailResource,
       :transaction_documents    => TransactionDesk::TransactionDocumentResource,
       :transactions             => TransactionDesk::TransactionResource
@@ -92,6 +93,16 @@ class TransactionDesk::ClientTest < Minitest::Test
 
       assert_instance_of Array, transaction_documents
       transaction_documents.each{ |transaction_document| assert_instance_of TransactionDesk::TransactionDocument, transaction_document }
+    end
+
+    def test_transaction_contacts_all_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/1234/contacts').
+        to_return(status: 200, body: api_fixture('transaction_contacts/all'))
+
+      transaction_contacts = @transaction_desk_client.transaction_contacts.all(transaction_id: 1234)
+
+      assert_instance_of Array, transaction_contacts
+      transaction_contacts.each{ |transaction_contact| assert_instance_of TransactionDesk::TransactionContact, transaction_contact }
     end
 
   end
