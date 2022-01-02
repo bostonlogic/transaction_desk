@@ -105,6 +105,16 @@ class TransactionDesk::ClientTest < Minitest::Test
       transaction_contacts.each{ |transaction_contact| assert_instance_of TransactionDesk::TransactionContact, transaction_contact }
     end
 
+    def test_transaction_contact_types_all_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/contacts/types').
+        to_return(status: 200, body: api_fixture('transaction_contact_types/all'))
+
+      transaction_contact_types = @transaction_desk_client.transaction_contact_types.all
+
+      assert_instance_of Array, transaction_contact_types
+      transaction_contact_types.each{ |transaction_contact_type| assert_instance_of TransactionDesk::TransactionContactType, transaction_contact_type }
+    end
+
   end
 
 end
