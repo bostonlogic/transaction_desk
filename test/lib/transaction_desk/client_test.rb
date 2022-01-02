@@ -49,10 +49,11 @@ class TransactionDesk::ClientTest < Minitest::Test
     end
 
     {
-      :transaction_contacts     => TransactionDesk::TransactionContactResource,
-      :transaction_details      => TransactionDesk::TransactionDetailResource,
-      :transaction_documents    => TransactionDesk::TransactionDocumentResource,
-      :transactions             => TransactionDesk::TransactionResource
+      :transaction_contacts      => TransactionDesk::TransactionContactResource,
+      :transaction_contact_types => TransactionDesk::TransactionContactTypeResource,
+      :transaction_details       => TransactionDesk::TransactionDetailResource,
+      :transaction_documents     => TransactionDesk::TransactionDocumentResource,
+      :transactions              => TransactionDesk::TransactionResource
     }.each do |method, result|
       define_method "test_#{method}_returns_#{result}" do
         assert_instance_of result, @transaction_desk_client.send(method)
