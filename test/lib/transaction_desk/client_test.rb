@@ -53,6 +53,7 @@ class TransactionDesk::ClientTest < Minitest::Test
       :transaction_contact_types => TransactionDesk::TransactionContactTypeResource,
       :transaction_details       => TransactionDesk::TransactionDetailResource,
       :transaction_documents     => TransactionDesk::TransactionDocumentResource,
+      :transaction_types         => TransactionDesk::TransactionTypeResource,
       :transactions              => TransactionDesk::TransactionResource
     }.each do |method, result|
       define_method "test_#{method}_returns_#{result}" do
@@ -114,6 +115,16 @@ class TransactionDesk::ClientTest < Minitest::Test
 
       assert_instance_of Array, transaction_contact_types
       transaction_contact_types.each{ |transaction_contact_type| assert_instance_of TransactionDesk::TransactionContactType, transaction_contact_type }
+    end
+
+    def test_transaction_types_all_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/types').
+        to_return(status: 200, body: api_fixture('transaction_types/all'))
+
+      transaction_types = @transaction_desk_client.transaction_types.all
+
+      assert_instance_of Array, transaction_types
+      transaction_types.each{ |transaction_type| assert_instance_of TransactionDesk::TransactionType, transaction_type }
     end
 
   end

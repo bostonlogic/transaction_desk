@@ -25,6 +25,7 @@ module TransactionDesk
         transaction_contact_types: TransactionContactTypeResource,
         transaction_details: TransactionDetailResource,
         transaction_documents: TransactionDocumentResource,
+        transaction_types: TransactionTypeResource,
         transactions: TransactionResource
       }
     end
