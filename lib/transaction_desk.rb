@@ -10,6 +10,7 @@ module TransactionDesk
   autoload :MetadataMapping, 'transaction_desk/mappings/metadata_mapping'
   autoload :PropertyMapping, 'transaction_desk/mappings/property_mapping'
   autoload :PurchaseMapping, 'transaction_desk/mappings/purchase_mapping'
+  autoload :SingleSignOnMapping, 'transaction_desk/mappings/single_sign_on_mapping'
   autoload :TransactionContactMapping, 'transaction_desk/mappings/transaction_contact_mapping'
   autoload :TransactionContactTypeMapping, 'transaction_desk/mappings/transaction_contact_type_mapping'
   autoload :TransactionDetailMapping, 'transaction_desk/mappings/transaction_detail_mapping'
@@ -23,6 +24,7 @@ module TransactionDesk
   autoload :Metadata, 'transaction_desk/models/metadata'
   autoload :Property, 'transaction_desk/models/property'
   autoload :Purchase, 'transaction_desk/models/purchase'
+  autoload :SingleSignOn, 'transaction_desk/models/single_sign_on'
   autoload :TransactionContact, 'transaction_desk/models/transaction_contact'
   autoload :TransactionContactType, 'transaction_desk/models/transaction_contact_type'
   autoload :TransactionDetail, 'transaction_desk/models/transaction_detail'
@@ -32,6 +34,7 @@ module TransactionDesk
   autoload :Transaction, 'transaction_desk/models/transaction'
 
   autoload :MetadataResource, 'transaction_desk/resources/metadata_resource'
+  autoload :SingleSignOnResource, 'transaction_desk/resources/single_sign_on_resource'
   autoload :TransactionContactResource, 'transaction_desk/resources/transaction_contact_resource'
   autoload :TransactionContactTypeResource, 'transaction_desk/resources/transaction_contact_type_resource'
   autoload :TransactionDetailResource, 'transaction_desk/resources/transaction_detail_resource'

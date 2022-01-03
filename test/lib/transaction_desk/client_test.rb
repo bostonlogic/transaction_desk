@@ -50,6 +50,7 @@ class TransactionDesk::ClientTest < Minitest::Test
 
     {
       :metadata                  => TransactionDesk::MetadataResource,
+      :single_sign_on            => TransactionDesk::SingleSignOnResource,
       :transaction_contacts      => TransactionDesk::TransactionContactResource,
       :transaction_contact_types => TransactionDesk::TransactionContactTypeResource,
       :transaction_details       => TransactionDesk::TransactionDetailResource,
@@ -146,6 +147,15 @@ class TransactionDesk::ClientTest < Minitest::Test
       metadata = @transaction_desk_client.metadata.fetch_metadata
 
       assert_instance_of TransactionDesk::Metadata, metadata
+    end
+
+    def test_sso_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/view-url').
+        to_return(status: 200, body: api_fixture('single_sign_on/dashboard'))
+
+      single_sign_on = @transaction_desk_client.single_sign_on.dashboard
+
+      assert_instance_of TransactionDesk::SingleSignOn, single_sign_on
     end
 
   end
