@@ -6,4 +6,12 @@ class TransactionDeskTest < Minitest::Test
     refute_nil ::TransactionDesk::VERSION
   end
 
+  def test_error_is_initialized
+    assert TransactionDesk::Error
+  end
+
+  def test_unauthorized_error_is_initialized
+    assert TransactionDesk::UnauthorizedError
+  end
+
 end
