@@ -13,6 +13,7 @@ module TransactionDesk
   autoload :TransactionContactTypeMapping, 'transaction_desk/mappings/transaction_contact_type_mapping'
   autoload :TransactionDetailMapping, 'transaction_desk/mappings/transaction_detail_mapping'
   autoload :TransactionDocumentMapping, 'transaction_desk/mappings/transaction_document_mapping'
+  autoload :TransactionStatusMapping, 'transaction_desk/mappings/transaction_status_mapping'
   autoload :TransactionTypeMapping, 'transaction_desk/mappings/transaction_type_mapping'
   autoload :TransactionMapping, 'transaction_desk/mappings/transaction_mapping'
 
@@ -24,6 +25,7 @@ module TransactionDesk
   autoload :TransactionContactType, 'transaction_desk/models/transaction_contact_type'
   autoload :TransactionDetail, 'transaction_desk/models/transaction_detail'
   autoload :TransactionDocument, 'transaction_desk/models/transaction_document'
+  autoload :TransactionStatus, 'transaction_desk/models/transaction_status'
   autoload :TransactionType, 'transaction_desk/models/transaction_type'
   autoload :Transaction, 'transaction_desk/models/transaction'
 
@@ -31,6 +33,7 @@ module TransactionDesk
   autoload :TransactionContactTypeResource, 'transaction_desk/resources/transaction_contact_type_resource'
   autoload :TransactionDetailResource, 'transaction_desk/resources/transaction_detail_resource'
   autoload :TransactionDocumentResource, 'transaction_desk/resources/transaction_document_resource'
+  autoload :TransactionStatusResource, 'transaction_desk/resources/transaction_status_resource'
   autoload :TransactionTypeResource, 'transaction_desk/resources/transaction_type_resource'
   autoload :TransactionResource, 'transaction_desk/resources/transaction_resource'
 

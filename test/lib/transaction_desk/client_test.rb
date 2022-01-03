@@ -53,6 +53,7 @@ class TransactionDesk::ClientTest < Minitest::Test
       :transaction_contact_types => TransactionDesk::TransactionContactTypeResource,
       :transaction_details       => TransactionDesk::TransactionDetailResource,
       :transaction_documents     => TransactionDesk::TransactionDocumentResource,
+      :transaction_statuses      => TransactionDesk::TransactionStatusResource,
       :transaction_types         => TransactionDesk::TransactionTypeResource,
       :transactions              => TransactionDesk::TransactionResource
     }.each do |method, result|
@@ -125,6 +126,16 @@ class TransactionDesk::ClientTest < Minitest::Test
 
       assert_instance_of Array, transaction_types
       transaction_types.each{ |transaction_type| assert_instance_of TransactionDesk::TransactionType, transaction_type }
+    end
+
+    def test_transaction_statuses_all_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/statuses').
+        to_return(status: 200, body: api_fixture('transaction_statuses/all'))
+
+      transaction_statuses = @transaction_desk_client.transaction_statuses.all
+
+      assert_instance_of Array, transaction_statuses
+      transaction_statuses.each{ |transaction_status| assert_instance_of TransactionDesk::TransactionStatus, transaction_status }
     end
 
   end
