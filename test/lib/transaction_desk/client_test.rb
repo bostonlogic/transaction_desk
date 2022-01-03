@@ -49,6 +49,7 @@ class TransactionDesk::ClientTest < Minitest::Test
     end
 
     {
+      :metadata                  => TransactionDesk::MetadataResource,
       :transaction_contacts      => TransactionDesk::TransactionContactResource,
       :transaction_contact_types => TransactionDesk::TransactionContactTypeResource,
       :transaction_details       => TransactionDesk::TransactionDetailResource,
@@ -136,6 +137,15 @@ class TransactionDesk::ClientTest < Minitest::Test
 
       assert_instance_of Array, transaction_statuses
       transaction_statuses.each{ |transaction_status| assert_instance_of TransactionDesk::TransactionStatus, transaction_status }
+    end
+
+    def test_metadata_endpoint_works_as_expected
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/statuses/meta').
+        to_return(status: 200, body: api_fixture('metadata/metadata'))
+
+      metadata = @transaction_desk_client.metadata.fetch_metadata
+
+      assert_instance_of TransactionDesk::Metadata, metadata
     end
 
   end

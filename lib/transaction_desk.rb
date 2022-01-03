@@ -7,6 +7,7 @@ module TransactionDesk
   autoload :Client, 'transaction_desk/client'
 
   autoload :ListingMapping, 'transaction_desk/mappings/listing_mapping'
+  autoload :MetadataMapping, 'transaction_desk/mappings/metadata_mapping'
   autoload :PropertyMapping, 'transaction_desk/mappings/property_mapping'
   autoload :PurchaseMapping, 'transaction_desk/mappings/purchase_mapping'
   autoload :TransactionContactMapping, 'transaction_desk/mappings/transaction_contact_mapping'
@@ -19,6 +20,7 @@ module TransactionDesk
 
   autoload :BaseModel, 'transaction_desk/models/base_model'
   autoload :Listing, 'transaction_desk/models/listing'
+  autoload :Metadata, 'transaction_desk/models/metadata'
   autoload :Property, 'transaction_desk/models/property'
   autoload :Purchase, 'transaction_desk/models/purchase'
   autoload :TransactionContact, 'transaction_desk/models/transaction_contact'
@@ -29,6 +31,7 @@ module TransactionDesk
   autoload :TransactionType, 'transaction_desk/models/transaction_type'
   autoload :Transaction, 'transaction_desk/models/transaction'
 
+  autoload :MetadataResource, 'transaction_desk/resources/metadata_resource'
   autoload :TransactionContactResource, 'transaction_desk/resources/transaction_contact_resource'
   autoload :TransactionContactTypeResource, 'transaction_desk/resources/transaction_contact_type_resource'
   autoload :TransactionDetailResource, 'transaction_desk/resources/transaction_detail_resource'
