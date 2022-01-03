@@ -7,7 +7,7 @@ module TransactionDesk
       # GET /transactions/:transaction_id/documents
       action :all do
         verb :get
-        # query_keys :$orderDir
+        query_keys :'$orderDir'
         path "#{TransactionDesk.configuration.path_url}/transactions/:transaction_id/documents"
         handler(200) { |response| TransactionDocumentMapping.extract_collection(response.body, :read) }
       end
