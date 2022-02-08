@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TransactionDesk::TransactionDetailResourceTest < Minitest::Test
 
-  class Fetch < Minitest::Test
+  class Find < Minitest::Test
 
     def test_returns_a_transaction_detail
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions/1234/details').
@@ -11,7 +11,7 @@ class TransactionDesk::TransactionDetailResourceTest < Minitest::Test
       connection = TransactionDesk::Client.new('alohomora').connection
       resource = TransactionDesk::TransactionDetailResource.new(connection: connection)
 
-      transaction_detail = resource.fetch(transaction_id: 1234)
+      transaction_detail = resource.find(transaction_id: 1234)
 
       assert_instance_of TransactionDesk::TransactionDetail, transaction_detail
       assert_instance_of TransactionDesk::Listing, transaction_detail.listing

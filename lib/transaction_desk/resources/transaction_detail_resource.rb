@@ -5,7 +5,7 @@ module TransactionDesk
     resources do
 
       # GET /transactions/:transaction_id/details
-      action :fetch do
+      action :find do
         verb :get
         path "#{TransactionDesk.configuration.path_url}/transactions/:transaction_id/details"
         handler(200) { |response| TransactionDetailMapping.extract_single(response.body, :read) }
