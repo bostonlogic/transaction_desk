@@ -1,5 +1,5 @@
 module TransactionDesk
-  class Purchase < BaseModel
+  class SaleInformation < BaseModel
     attribute :purchase_price
     attribute :offer_date
     attribute :offer_expiration_date

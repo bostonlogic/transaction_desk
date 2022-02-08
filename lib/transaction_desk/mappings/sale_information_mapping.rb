@@ -1,9 +1,9 @@
 module TransactionDesk
-  class PurchaseMapping
+  class SaleInformationMapping
     include Kartograph::DSL
 
     kartograph do
-      mapping Purchase
+      mapping SaleInformation
 
       scoped :read, :update do
         property :purchase_price,            key: 'purchasePrice'

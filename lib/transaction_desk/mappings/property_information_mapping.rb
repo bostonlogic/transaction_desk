@@ -1,9 +1,9 @@
 module TransactionDesk
-  class PropertyMapping
+  class PropertyInformationMapping
     include Kartograph::DSL
 
     kartograph do
-      mapping Property
+      mapping PropertyInformation
 
       scoped :read, :update do
         property :street_name,       key: 'streetName'

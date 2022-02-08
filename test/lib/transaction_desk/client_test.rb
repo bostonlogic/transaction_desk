@@ -85,9 +85,9 @@ class TransactionDesk::ClientTest < Minitest::Test
       transaction_detail = @transaction_desk_client.transaction_details.find(transaction_id: 1234)
 
       assert_instance_of TransactionDesk::TransactionDetail, transaction_detail
-      assert_instance_of TransactionDesk::Listing, transaction_detail.listing
-      assert_instance_of TransactionDesk::Property, transaction_detail.property
-      assert_instance_of TransactionDesk::Purchase, transaction_detail.purchase
+      assert_instance_of TransactionDesk::ListingInformation, transaction_detail.listing_information
+      assert_instance_of TransactionDesk::PropertyInformation, transaction_detail.property_information
+      assert_instance_of TransactionDesk::SaleInformation, transaction_detail.sale_information
     end
 
     def test_transaction_documents_all_endpoint_works_as_expected

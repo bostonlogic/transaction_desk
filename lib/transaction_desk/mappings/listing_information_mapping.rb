@@ -1,9 +1,9 @@
 module TransactionDesk
-  class ListingMapping
+  class ListingInformationMapping
     include Kartograph::DSL
 
     kartograph do
-      mapping Listing
+      mapping ListingInformation
 
       scoped :read, :update do
         property :mls_number,        key: 'mlsNumber'
