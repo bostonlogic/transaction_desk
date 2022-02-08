@@ -30,12 +30,20 @@ class TransactionDesk::MetadataResourceTest < Minitest::Test
 
       metadata_properties = resource.fetch_metadata_properties
 
-      assert_instance_of TransactionDesk::Metadata, metadata_properties
-      assert_equal 'Id', metadata_properties.name
-      assert_equal 'Guid', metadata_properties.type
-      assert_equal true, metadata_properties.can_filter
-      assert_equal true, metadata_properties.can_sort
-      assert_equal 'Equals', metadata_properties.filter_type
+      assert_instance_of Array, metadata_properties
+      metadata_properties.each{ |metadata_property| assert_instance_of TransactionDesk::Metadata, metadata_property }
+      
+      assert_equal 'Id', metadata_properties.first.name
+      assert_equal 'Guid', metadata_properties.first.type
+      assert_equal true, metadata_properties.first.can_filter
+      assert_equal true, metadata_properties.first.can_sort
+      assert_equal 'Equals', metadata_properties.first.filter_type
+
+      assert_equal 'LastModified', metadata_properties.last.name
+      assert_equal 'DateTimeOffset', metadata_properties.last.type
+      assert_equal false, metadata_properties.last.can_filter
+      assert_equal false, metadata_properties.last.can_sort
+      assert_equal nil, metadata_properties.last.filter_type
     end
   end
 

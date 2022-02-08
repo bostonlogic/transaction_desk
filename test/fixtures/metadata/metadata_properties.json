@@ -1,7 +1,37 @@
-{
-  "name": "Id",
-  "type": "Guid",
-  "canFilter": true,
-  "canSort": true,
-  "filterType": "Equals"
-}
+[
+  {
+    "name": "Id",
+    "type": "Guid",
+    "canFilter": true,
+    "canSort": true,
+    "filterType": "Equals"
+  },
+  {
+    "name": "Name",
+    "type": "String",
+    "canFilter": true,
+    "canSort": true,
+    "filterType": "Like"
+  },
+  {
+    "name": "OwnerId",
+    "type": "Nullable<Guid>",
+    "canFilter": false,
+    "canSort": false,
+    "filterType": null
+  },
+  {
+    "name": "DateCreated",
+    "type": "DateTimeOffset",
+    "canFilter": false,
+    "canSort": false,
+    "filterType": null
+  },
+  {
+    "name": "LastModified",
+    "type": "DateTimeOffset",
+    "canFilter": false,
+    "canSort": false,
+    "filterType": null
+  }
+]

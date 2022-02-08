@@ -15,7 +15,7 @@ module TransactionDesk
       action :fetch_metadata_properties do
         verb :get
         path "#{TransactionDesk.configuration.path_url}/transactions/statuses/meta/properties"
-        handler(200) { |response| MetadataMapping.extract_single(response.body, :properties) }
+        handler(200) { |response| MetadataMapping.extract_collection(response.body, :properties) }
       end
 
     end
