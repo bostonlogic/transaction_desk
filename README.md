@@ -33,6 +33,18 @@ client = TransactionDesk::Client.new('alohomora')
 
 You can now use the client to access the available endpoints 😈.
 
+### Transaction Documents
+
+```ruby
+client.transaction_documents.all(transaction_id: '1234')
+client.transaction_documents.find(transaction_id: '1234', transaction_document_id: '1234')
+transaction_document = TransactionDesk::TransactionDocument.new(file_name: 'Alien Alicorns vs. Space Pirates', file_extension: 'GUID-for-file_extension', raw_text: 'Base64-encoded-file')
+client.transaction_documents.create(transaction_document, transaction_id: '1234') **currently not working**
+transaction_document = TransactionDesk::TransactionDocument.new(file_name: 'Alien Alicorns Versus Space Pirates', file_extension: 'GUID-for-file_extension', raw_text: 'Base64-encoded-file')
+client.transaction_documents.update(transaction_document, transaction_id: '1234', transaction_document_id: '5678') **currently not working**
+client.transaction_documents.destroy(transaction_id: '1234', transaction_document_id: '5678')
+```
+
 ### Transaction Contacts
 
 ```ruby
