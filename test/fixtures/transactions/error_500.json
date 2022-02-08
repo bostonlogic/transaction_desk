@@ -1,0 +1,13 @@
+{
+  "code": 500,
+  "message": "Conversion failed when converting from a character string to uniqueidentifier.",
+  "details": [],
+  "data": {
+    "helpLink.ProdName": "Microsoft SQL Server",
+    "helpLink.ProdVer": "12.00.5522",
+    "helpLink.EvtSrc": "MSSQLServer",
+    "helpLink.EvtID": "8169",
+    "helpLink.BaseHelpUrl": "http://go.microsoft.com/fwlink",
+    "helpLink.LinkId": "20476"
+  }
+}

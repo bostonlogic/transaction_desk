@@ -37,7 +37,7 @@ class TransactionDesk::TransactionTypeResourceTest < Minitest::Test
   end
 
   class Create < Minitest::Test
-    def test_creates_and_returns_a_transaction_contact_type
+    def test_creates_and_returns_a_transaction_type
       transaction_desk_contact_type = TransactionDesk::TransactionType.new(
         name: 'Taifa Ngao Elder'
       )
@@ -52,7 +52,7 @@ class TransactionDesk::TransactionTypeResourceTest < Minitest::Test
       transaction_type = resource.create(transaction_desk_contact_type)
 
       assert_instance_of TransactionDesk::TransactionType, transaction_type
-      assert_equal 'ee9d3620-9b2f-437d-b522-3c785dbbfacd', transaction_type.id
+      assert_equal '70aac1ad-305f-499b-b5da-f28bb28729ba', transaction_type.id
     end
   end
 

@@ -1,5 +1,5 @@
 module TransactionDesk
-  class Property < BaseModel
+  class PropertyInformation < BaseModel
     attribute :street_name
     attribute :street_number
     attribute :state

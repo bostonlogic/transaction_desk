@@ -57,7 +57,7 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
       transaction = resource.create(transaction_desk_transaction)
 
       assert_instance_of TransactionDesk::Transaction, transaction
-      assert_equal '1234', transaction.id
+      assert_equal 'f67d1012-7ba8-4807-8085-1b754bd4dc16', transaction.id
     end
   end
 

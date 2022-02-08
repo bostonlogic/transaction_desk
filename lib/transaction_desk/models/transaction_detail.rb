@@ -1,7 +1,7 @@
 module TransactionDesk
   class TransactionDetail < BaseModel
-    attribute :property, Property
-    attribute :listing, Listing
-    attribute :purchase, Purchase
+    attribute :property_information, PropertyInformation
+    attribute :listing_information, ListingInformation
+    attribute :sale_information, SaleInformation
   end
 end

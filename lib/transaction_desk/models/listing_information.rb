@@ -1,5 +1,5 @@
 module TransactionDesk
-  class Listing < BaseModel
+  class ListingInformation < BaseModel
     attribute :mls_number
     attribute :list_price
     attribute :expiration_date

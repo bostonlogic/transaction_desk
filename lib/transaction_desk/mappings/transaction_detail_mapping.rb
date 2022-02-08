@@ -6,9 +6,9 @@ module TransactionDesk
       mapping TransactionDetail
 
       scoped :read, :update do
-        property :property, include: PropertyMapping
-        property :listing,  include: ListingMapping
-        property :purchase, include: PurchaseMapping
+        property :property_information, include: PropertyInformationMapping, key: 'property'
+        property :listing_information,  include: ListingInformationMapping, key: 'listing'
+        property :sale_information, include: SaleInformationMapping, key: 'purchase'
       end
 
     end

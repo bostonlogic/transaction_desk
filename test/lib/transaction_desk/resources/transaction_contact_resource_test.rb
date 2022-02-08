@@ -71,7 +71,7 @@ class TransactionDesk::TransactionContactResourceTest < Minitest::Test
       transaction_contact = resource.create(transaction_desk_contact, transaction_id: 1234)
 
       assert_instance_of TransactionDesk::TransactionContact, transaction_contact
-      assert_equal '121314', transaction_contact.id
+      assert_equal '97a14227-0d87-485f-af3d-6c19cc979891', transaction_contact.id
     end
   end
 

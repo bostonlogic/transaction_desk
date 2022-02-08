@@ -23,7 +23,7 @@ module TransactionDesk
         verb :post
         body { |object| TransactionContactMapping.representation_for(:create, object) }
         path "#{TransactionDesk.configuration.path_url}/transactions/:transaction_id/contacts"
-        handler(200) { |response| TransactionContactMapping.extract_single(response.body, :created) }
+        handler(200) { |response| TransactionContactMapping.extract_single(convert_response_to_valid_json(response.body), :created) }
       end
 
       # PATCH /transactions/:transaction_id/contacts/:contact_id
@@ -41,6 +41,12 @@ module TransactionDesk
         handler(200) { |_| true }
       end
 
+    end
+
+    def convert_response_to_valid_json(response_body)
+      {
+        id: response_body.gsub(%r(\s|{|}|"|"), '')
+      }.to_json
     end
 
   end

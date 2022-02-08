@@ -1,0 +1,13 @@
+{
+  "code": 500,
+  "message": "String or binary data would be truncated.\r\nThe statement has been terminated.",
+  "details": [],
+  "data": {
+    "helpLink.ProdName": "Microsoft SQL Server",
+    "helpLink.ProdVer": "12.00.5522",
+    "helpLink.EvtSrc": "MSSQLServer",
+    "helpLink.EvtID": "8152",
+    "helpLink.BaseHelpUrl": "http://go.microsoft.com/fwlink",
+    "helpLink.LinkId": "20476"
+  }
+}
