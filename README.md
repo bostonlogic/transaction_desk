@@ -33,6 +33,18 @@ client = TransactionDesk::Client.new('alohomora')
 
 You can now use the client to access the available endpoints 😈.
 
+### Transaction Statuses
+
+```ruby
+client.transaction_statuses.all
+client.transaction_statuses.find(transaction_status_id: '1234')
+transaction_status = TransactionDesk::TransactionStatus.new(name: 'Its Complicated')
+client.transaction_statuses.create(transaction_status)
+transaction_status = TransactionDesk::TransactionStatus.new(name: "It's Complicated")
+client.transaction_statuses.update(transaction_status, transaction_status_id: '78910') **currently not working**
+client.transaction_statuses.destroy(transaction_status_id: '78910')
+```
+
 ### Single Sign On
 
 ```ruby

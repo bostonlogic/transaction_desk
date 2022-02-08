@@ -1,0 +1,6 @@
+{
+  "code": 500,
+  "message": "Cannot convert null to 'bool' because it is a non-nullable value type",
+  "details": [],
+  "data": {}
+}
