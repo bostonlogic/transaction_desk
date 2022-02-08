@@ -22,7 +22,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use the gem you first need to get an access token from Transaction Desk. Instructions to do so can be found [here](https://transactiondesk.docs.apiary.io/#introduction/authorization).
+
+With access token token in hand, the first step is to instanciate a transaction desk client:
+
+```ruby
+access_token = 'alohomora'
+client = TransactionDesk::Client.new('alohomora')
+```
+
+You can now use the client to access the available endpoints 😈.
+
+### Single Sign On
+
+```ruby
+client.single_sign_on.dashboard
+client.single_sign_on.transactions
+client.single_sign_on.transaction(transaction_id: '1234')
+```
+
+### Single Sign On
+
+```ruby
+client.metadata.fetch_metadata
+client.metadata.fetch_metadata_properties
+```
 
 ## Development
 
