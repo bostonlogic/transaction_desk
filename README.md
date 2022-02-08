@@ -33,6 +33,18 @@ client = TransactionDesk::Client.new('alohomora')
 
 You can now use the client to access the available endpoints 😈.
 
+### Transaction Contact Types
+
+```ruby
+client.transaction_contact_types.all
+client.transaction_contact_types.find(contact_type_id: '1234')
+contact_type = TransactionDesk::TransactionContactType.new(name: 'Frands')
+client.transaction_contact_types.create(contact_type)
+contact_type = TransactionDesk::TransactionContactType.new(name: 'Best Frands')
+client.transaction_contact_types.update(contact_type, contact_type_id: '5678') **currently not working**
+client.transaction_contact_types.destroy(contact_type_id: '5678')
+```
+
 ### Transaction Types
 
 ```ruby
