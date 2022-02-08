@@ -33,6 +33,18 @@ client = TransactionDesk::Client.new('alohomora')
 
 You can now use the client to access the available endpoints 😈.
 
+### Transaction Summary
+
+```ruby
+client.transactions.all
+client.transactions.find(transaction_id: '1234')
+transaction = TransactionDesk::Transaction.new(name: 'Happy Transaction Name', status_id: 'GUID-for-status', type_id: 'GUID-for-type')
+client.transactions.create(transaction)
+transaction = TransactionDesk::Transaction.new(name: 'Updated Transaction Name')
+client.transactions.update(transaction, transaction_id: '5678')
+client.transactions.destroy(transaction_id: '5678')
+```
+
 ### Transaction Documents
 
 ```ruby
