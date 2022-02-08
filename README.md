@@ -41,7 +41,7 @@ client.single_sign_on.transactions
 client.single_sign_on.transaction(transaction_id: '1234')
 ```
 
-### Single Sign On
+### Metadata
 
 ```ruby
 client.metadata.fetch_metadata
