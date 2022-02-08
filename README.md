@@ -45,6 +45,17 @@ client.transactions.update(transaction, transaction_id: '5678')
 client.transactions.destroy(transaction_id: '5678')
 ```
 
+### Transaction Detail
+
+```ruby
+client.transaction_details.fetch(transaction_id: '1234')
+property_information = TransactionDesk::Property.new(street_number: 743, street_name: 'Cantebery St APT 302', city: 'Boston', State: 'MA', zip_code: '02127', year_built: 1899)
+listing_information = TransactionDesk::Listing.new(mls_number: '7292728', list_price: '625000', property_includes: 'parking', property_excludes: 'roofdeck access, accessibility features', leased_items: 'cable modem')
+sale_information = TransactionDesk::Purchase.new(purchase_price: '500000', deposit_amount: '50000')
+transaction_details = TransactionDesk::TransactionDetail.new(property: property_information, listing: listing_information, purchase: sale_information)
+client.transaction_details.update(transaction_details, transaction_id: '1234')
+```
+
 ### Transaction Documents
 
 ```ruby
