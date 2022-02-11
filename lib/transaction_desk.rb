@@ -1,5 +1,6 @@
 require 'transaction_desk/version'
 require 'transaction_desk/configuration'
+require 'transaction_desk/global_type_guids'
 require 'resource_kit'
 require 'kartograph'
 
