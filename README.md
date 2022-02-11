@@ -76,6 +76,14 @@ client.transaction_documents.update(transaction_document, transaction_id: '1234'
 client.transaction_documents.destroy(transaction_id: '1234', transaction_document_id: '5678') #=> true (not tested yet)
 ```
 
+#### Global Document File Types
+
+A collection of globally available document file types in available in a hash that maps the camelcased status name to it's GUID.
+
+```ruby
+TransactionDesk::GLOBAL_DOCUMENT_FILE_TYPES #=> {'gif' => '933088C0-91FB-4EAA-BD57-A94EF1B3300F', ...}
+```
+
 ### Transaction Contacts
 
 ```ruby
@@ -108,6 +116,14 @@ client.transaction_contact_types.update(contact_type, contact_type_id: '5678') #
 client.transaction_contact_types.destroy(contact_type_id: '5678') #=> true
 ```
 
+#### Global Transaction Contact Types
+
+A collection of globally available transaction contact types in available in a hash that maps the camelcased status name to it's GUID.
+
+```ruby
+TransactionDesk::GLOBAL_TRANSACTION_CONTACT_TYPES #=> {'buyer' => '0ED89951-0FC9-46A9-9FC8-1ED2A85966B5', ...}
+```
+
 ### Transaction Types
 
 ```ruby
@@ -124,6 +140,14 @@ client.transaction_types.update(transaction_type, transaction_type_id: '78910') 
 client.transaction_types.destroy(transaction_type_id: '78910') #=> true
 ```
 
+#### Global Transaction Types
+
+A collection of globally available transaction types in available in a hash that maps the camelcased status name to it's GUID.
+
+```ruby
+TransactionDesk::GLOBAL_TRANSACTION_TYPES #=> {'residential_sale' => '5698FAC5-5F95-47CB-B231-13507AD61855', ...}
+```
+
 ### Transaction Statuses
 
 ```ruby
@@ -138,6 +162,14 @@ transaction_status = TransactionDesk::TransactionStatus.new(name: "It's Complica
 client.transaction_statuses.update(transaction_status, transaction_status_id: '78910') #=> **currently not working**
 
 client.transaction_statuses.destroy(transaction_status_id: '78910') #=> true
+```
+
+#### Global Transaction Statuses
+
+A collection of globally available transaction statuses in available in a hash that maps the camelcased status name to it's GUID.
+
+```ruby
+TransactionDesk::GLOBAL_TRANSACTION_STATUSES #=> {'active' => 'EE349FD8-5842-420F-84A2-9B80B8D9632E', ...}
 ```
 
 ### Single Sign On
