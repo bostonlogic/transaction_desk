@@ -39,7 +39,6 @@ module TransactionDesk
         property :email
         property :company
         property :type_id,        key: 'typeId'
-        property :transaction_id, key: 'transactionId'
       end
 
       scoped :created do
