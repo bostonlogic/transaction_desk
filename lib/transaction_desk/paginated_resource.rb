@@ -37,7 +37,7 @@ module TransactionDesk
       unless last?
         start = [@collection.size, start].max
         fetch_next_page
-        each(start, &Proc.new)
+        each(start, &block)
       end
 
       self
