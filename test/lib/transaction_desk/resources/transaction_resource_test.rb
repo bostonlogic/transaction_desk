@@ -3,8 +3,10 @@ require 'test_helper'
 class TransactionDesk::TransactionResourceTest < Minitest::Test
 
   class All < Minitest::Test
+
     def test_returns_an_array_of_transactions
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$skip' => 100, '$take' => 100}).
         to_return(status: 200, body: api_fixture('transactions/all'))
 
       connection = TransactionDesk::Client.new('alohomora').connection
@@ -12,9 +14,57 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
 
       transactions = resource.all
 
-      assert_instance_of Array, transactions
+      assert_instance_of TransactionDesk::PaginatedResource, transactions
       transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
     end
+
+    def test_returns_an_array_of_paginated_results
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 5}).
+        to_return(status: 200, body: api_fixture('transactions/all_1'))
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 10}).
+        to_return(status: 200, body: api_fixture('transactions/all_2'))
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 15}).
+        to_return(status: 200, body: api_fixture('transactions/all_3'))
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 20}).
+        to_return(status: 200, body: api_fixture('transactions/empty'))
+
+      connection = TransactionDesk::Client.new('alohomora').connection
+      resource = TransactionDesk::TransactionResource.new(connection: connection)
+
+      transactions = resource.all('$take': 5)
+
+      assert_instance_of TransactionDesk::PaginatedResource, transactions
+      transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
+      assert_equal 15, transactions.map(&:id).size
+      assert_equal (28..56).step(2).map(&:to_s), transactions.map(&:id)
+    end
+
+    def test_returns_an_array_of_paginated_results_with_partial_last_group
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 5}).
+        to_return(status: 200, body: api_fixture('transactions/all_1'))
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 10}).
+        to_return(status: 200, body: api_fixture('transactions/all_2'))
+      stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$take' => 5, '$skip' => 15}).
+        to_return(status: 200, body: api_fixture('transactions/all_3_0'))
+
+      connection = TransactionDesk::Client.new('alohomora').connection
+      resource = TransactionDesk::TransactionResource.new(connection: connection)
+
+      transactions = resource.all('$take': 5)
+
+      assert_instance_of TransactionDesk::PaginatedResource, transactions
+      transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
+      assert_equal 13, transactions.map(&:id).size
+      assert_equal (28..46).step(2).map(&:to_s) + ['47', '49', '51'], transactions.map(&:id)
+    end
+
   end
 
   class Find < Minitest::Test

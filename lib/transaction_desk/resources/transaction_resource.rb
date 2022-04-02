@@ -50,5 +50,9 @@ module TransactionDesk
       }.to_json
     end
 
+    def all(*args)
+      PaginatedResource.new(action(:all), self, *args)
+    end
+
   end
 end

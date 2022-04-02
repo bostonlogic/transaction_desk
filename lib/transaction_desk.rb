@@ -45,6 +45,7 @@ module TransactionDesk
   autoload :TransactionResource, 'transaction_desk/resources/transaction_resource'
 
   autoload :ErrorHandlingResourcable, 'transaction_desk/error_handling_resourcable'
+  autoload :PaginatedResource, 'transaction_desk/paginated_resource'
 
   autoload :ErrorMapping, 'transaction_desk/mappings/error_mapping'
 
