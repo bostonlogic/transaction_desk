@@ -6,7 +6,7 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
 
     def test_returns_an_array_of_transactions
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$skip' => 100, '$take' => 100}).
+        with(query: {'$skip' => 0, '$take' => 100}).
         to_return(status: 200, body: api_fixture('transactions/all'))
 
       connection = TransactionDesk::Client.new('alohomora').connection
@@ -20,16 +20,16 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
 
     def test_returns_an_array_of_paginated_results
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 5}).
+        with(query: {'$take' => 5, '$skip' => 0}).
         to_return(status: 200, body: api_fixture('transactions/all_1'))
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 10}).
+        with(query: {'$take' => 5, '$skip' => 5}).
         to_return(status: 200, body: api_fixture('transactions/all_2'))
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 15}).
+        with(query: {'$take' => 5, '$skip' => 10}).
         to_return(status: 200, body: api_fixture('transactions/all_3'))
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 20}).
+        with(query: {'$take' => 5, '$skip' => 15}).
         to_return(status: 200, body: api_fixture('transactions/empty'))
 
       connection = TransactionDesk::Client.new('alohomora').connection
@@ -45,13 +45,13 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
 
     def test_returns_an_array_of_paginated_results_with_partial_last_group
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 5}).
+        with(query: {'$take' => 5, '$skip' => 0}).
         to_return(status: 200, body: api_fixture('transactions/all_1'))
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 10}).
+        with(query: {'$take' => 5, '$skip' => 5}).
         to_return(status: 200, body: api_fixture('transactions/all_2'))
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$take' => 5, '$skip' => 15}).
+        with(query: {'$take' => 5, '$skip' => 10}).
         to_return(status: 200, body: api_fixture('transactions/all_3_0'))
 
       connection = TransactionDesk::Client.new('alohomora').connection
