@@ -54,8 +54,8 @@ module TransactionDesk
     private
 
     def fetch_next_page
-      @batch_number += batch_size
       retrieve(@batch_number)
+      @batch_number += batch_size
     end
 
     def retrieve(batch_number, batch_size = self.batch_size)
@@ -64,9 +64,9 @@ module TransactionDesk
       invoker.options['$skip'] = batch_number
 
       batch = invoker.handle_response
-      @collection += batch
-
       @total = batch.size
+      
+      @collection += batch
     end
 
   end

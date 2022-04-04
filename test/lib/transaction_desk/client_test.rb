@@ -70,7 +70,7 @@ class TransactionDesk::ClientTest < Minitest::Test
 
     def test_transactions_all_endpoint_works_as_expected
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
-        with(query: {'$skip' => 100, '$take' => 100}).
+        with(query: {'$skip' => 0, '$take' => 100}).
         to_return(status: 200, body: api_fixture('transactions/all'))
 
       transactions = @transaction_desk_client.transactions.all
