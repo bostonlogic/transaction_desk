@@ -70,11 +70,12 @@ class TransactionDesk::ClientTest < Minitest::Test
 
     def test_transactions_all_endpoint_works_as_expected
       stub_request(:get, 'https://api.pre.transactiondesk.com/v2/transactions').
+        with(query: {'$skip' => 100, '$take' => 100}).
         to_return(status: 200, body: api_fixture('transactions/all'))
 
       transactions = @transaction_desk_client.transactions.all
 
-      assert_instance_of Array, transactions
+      assert_instance_of TransactionDesk::PaginatedResource, transactions
       transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
     end
 

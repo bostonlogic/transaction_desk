@@ -7,7 +7,7 @@ module TransactionDesk
       # GET /transactions
       action :all do
         verb :get
-        query_keys :name, :'$take', :'$skip', :'$orderBy', :'$orderDir'
+        query_keys 'name', '$take', '$skip', '$orderBy', '$orderDir'
         path "#{TransactionDesk.configuration.path_url}/transactions"
         handler(200) { |response| TransactionMapping.extract_collection(response.body, :read) }
       end
@@ -48,6 +48,10 @@ module TransactionDesk
       {
         id: response_body.gsub(%r(\s|{|}|"|"), '')
       }.to_json
+    end
+
+    def all(*args)
+      PaginatedResource.new(action(:all), self, *args)
     end
 
   end

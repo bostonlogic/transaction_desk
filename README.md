@@ -36,7 +36,11 @@ You can now use the client to access the available endpoints 😈.
 ### Transaction Summary
 
 ```ruby
-client.transactions.all #=> [TransactionDesk::Transaction, TransactionDesk::Transaction, ...]
+client.transactions.all #=> TransactionDesk::PaginatedResource
+# Can also pass in filters 'name', '$take', '$skip', '$orderBy', and '$orderDir' as filters
+client.transactions.all('$take' => 50, '$skip' => 50) #=> TransactionDesk::PaginatedResource
+# To get an array of of TransactionDesk::Transaction objects, iterate over the TransactionDesk::PaginatedResource:
+client.transactions.all.each{|transaction| manipulate transaction } #=> [TransactionDesk::Transaction, TransactionDesk::Transaction, ...]
 
 client.transactions.find(transaction_id: '1234') #=> TransactionDesk::Transaction
 
