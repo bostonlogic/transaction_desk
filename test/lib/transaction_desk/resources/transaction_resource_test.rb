@@ -35,11 +35,11 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
       connection = TransactionDesk::Client.new('alohomora').connection
       resource = TransactionDesk::TransactionResource.new(connection: connection)
 
-      transactions = resource.all('$take': 5)
+      transactions = resource.all('$take' => 5)
 
       assert_instance_of TransactionDesk::PaginatedResource, transactions
       transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
-      assert_equal 15, transactions.map(&:id).size
+      assert_equal 15, transactions.count
       assert_equal (28..56).step(2).map(&:to_s), transactions.map(&:id)
     end
 
@@ -57,11 +57,11 @@ class TransactionDesk::TransactionResourceTest < Minitest::Test
       connection = TransactionDesk::Client.new('alohomora').connection
       resource = TransactionDesk::TransactionResource.new(connection: connection)
 
-      transactions = resource.all('$take': 5)
+      transactions = resource.all('$take' => 5)
 
       assert_instance_of TransactionDesk::PaginatedResource, transactions
       transactions.each{ |transaction| assert_instance_of TransactionDesk::Transaction, transaction }
-      assert_equal 13, transactions.map(&:id).size
+      assert_equal 13, transactions.count
       assert_equal (28..46).step(2).map(&:to_s) + ['47', '49', '51'], transactions.map(&:id)
     end
 

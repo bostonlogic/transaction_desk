@@ -18,7 +18,7 @@ module TransactionDesk
     end
 
     def batch_size
-      @options[:'$take'] || BATCH_SIZE
+      @options['$take'] || BATCH_SIZE
     end
 
     def [](index)
@@ -60,8 +60,8 @@ module TransactionDesk
 
     def retrieve(batch_number, batch_size = self.batch_size)
       invoker = ResourceKit::ActionInvoker.new(action, resource, *@args)
-      invoker.options[:'$take'] ||= batch_size
-      invoker.options[:'$skip'] = batch_number
+      invoker.options['$take'] ||= batch_size
+      invoker.options['$skip'] = batch_number
 
       batch = invoker.handle_response
       @collection += batch
