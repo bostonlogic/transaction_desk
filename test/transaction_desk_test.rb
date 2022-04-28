@@ -14,6 +14,14 @@ class TransactionDeskTest < Minitest::Test
     assert TransactionDesk::UnauthorizedError
   end
 
+  def test_unauthorized_error_is_initialized
+    assert TransactionDesk::UnsupportedApiVersionError
+  end
+
+  def test_unauthorized_error_is_initialized
+    assert TransactionDesk::NotFoundError
+  end
+
   def test_global_transaction_types_constant_exists
     refute_nil TransactionDesk::GLOBAL_TRANSACTION_TYPES
     assert_kind_of Hash, TransactionDesk::GLOBAL_TRANSACTION_TYPES

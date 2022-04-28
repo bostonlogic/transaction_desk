@@ -51,4 +51,6 @@ module TransactionDesk
 
   Error = Class.new(StandardError)
   UnauthorizedError = Class.new(TransactionDesk::Error)
+  UnsupportedApiVersionError = Class.new(TransactionDesk::Error)
+  NotFoundError = Class.new(TransactionDesk::Error)
 end
